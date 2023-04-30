@@ -28,12 +28,12 @@ public class FunctionsTest{
     PageFactory pageFactory = new PageFactory();
     BasePage basePageRegData = new BasePage("Maya", "maya11", "maya@gmail.com");
 
-    WebDriver driver;
+    /*WebDriver driver;
     @BeforeEach
     public void invokeDriver()
     {
         this.driver = Pages.driver;
-    }
+    }*/
     @AfterAll
     public static void quitDriver()
     {
@@ -209,8 +209,8 @@ public class FunctionsTest{
         BasePage basePage = (BasePage) pageFactory.makePage(PageType.BASE);
 
         Path path = Paths.get("expected.json");
-        byte[] fileContent = Files.readAllBytes(path);
-        Allure.addAttachment("expected.json", "application/json", Arrays.toString(fileContent));
+        String fileContent = Files.readString(path);
+        Allure.addAttachment("expected.json", "application/json", fileContent);
 
         MarkDownPage markDownPage = basePage.goToMarkDown();
         Thread.sleep(1500);

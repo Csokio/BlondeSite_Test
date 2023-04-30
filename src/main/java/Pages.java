@@ -17,10 +17,15 @@ public abstract class Pages {
 
     public Pages() {
         if (driver == null) {
-            WebDriverManager.chromedriver().setup();
+            //WebDriverManager.chromedriver().setup();
             //System.setProperty("webdriver.chrome.driver", "chromedriver");
+            System.setProperty("webdriver.chrome.driver", "chromedriver");
+
+
+
 
             ChromeOptions options = new ChromeOptions();
+            options.setAcceptInsecureCerts(true);
             options.addArguments("ignore-certificate-errors");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");

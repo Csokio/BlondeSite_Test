@@ -1,4 +1,5 @@
 import io.qameta.allure.Allure;
+import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.json.simple.JSONArray;
@@ -43,6 +44,8 @@ public class FunctionsTest{
     @Order(1)
     @DisplayName("Register to Blondesite")
     @Severity(SeverityLevel.BLOCKER)
+    @Description("Register a new account to Blondesite page, " +
+            "by providing username, email address and password")
     public void testRegister()
     {
         BasePage basePage = (BasePage) pageFactory.makePage(PageType.BASE);
@@ -69,6 +72,7 @@ public class FunctionsTest{
     @Order(2)
     @DisplayName("Login to Blondesite")
     @Severity(SeverityLevel.BLOCKER)
+    @Description("Login to Blondesite page, using appropriate username and password")
     public void testLogin() throws InterruptedException
     {
         BasePage basePage = (BasePage) pageFactory.makePage(PageType.BASE);
@@ -88,6 +92,7 @@ public class FunctionsTest{
     @Order(3)
     @DisplayName("Logout from Blondesite")
     @Severity(SeverityLevel.CRITICAL)
+    @Description("As a logged in user:\n     Click on Logout button")
     public void testLogOut() throws InterruptedException
     {
         BasePage basePage = (BasePage) pageFactory.makePage(PageType.BASE);
@@ -104,6 +109,8 @@ public class FunctionsTest{
     @Order(4)
     @DisplayName("Comparing Table Data")
     @Severity(SeverityLevel.NORMAL)
+    @Description("As a logged in user:\n    " +
+            "Verifying that the table content equals with the expected file's content")
     public void testTableData() throws InterruptedException, IOException {
         testLogin();
         BasePage basePage = (BasePage) pageFactory.makePage(PageType.BASE);
@@ -134,6 +141,8 @@ public class FunctionsTest{
     @Order(5)
     @DisplayName("Select Options")
     @Severity(SeverityLevel.NORMAL)
+    @Description("As a logged in user:\n    " +
+            "Verifying that the options in the select menu are equals with the expected ones")
     public void testKatexSelectButtonArray() throws InterruptedException
     {
         testLogin();
@@ -158,6 +167,8 @@ public class FunctionsTest{
     @Order(6)
     @DisplayName("Verify Selected Value")
     @Severity(SeverityLevel.NORMAL)
+    @Description("As a logged in user:\n    " +
+            "Verifying that the chosen select option is displayed")
     public void testKatexSelectButtonVisibleValue() throws InterruptedException
     {
         testLogin();
@@ -180,6 +191,8 @@ public class FunctionsTest{
     @Order(7)
     @DisplayName("Change Text")
     @Severity(SeverityLevel.MINOR)
+    @Description("As a logged in user:\n    " +
+            "Change the content of the textarea based on the provided file")
     public void testChangeTextAndNavigateBack() throws InterruptedException
     {
         testLogin();
@@ -202,6 +215,8 @@ public class FunctionsTest{
     @Order(8)
     @DisplayName("List Types")
     @Severity(SeverityLevel.NORMAL)
+    @Description("As a logged in user:\n    " +
+            "Check if the structure of the list types equals with the content of the expected json file")
     public void testGetListTypes() throws InterruptedException, IOException, ParseException
     {
         testLogin();

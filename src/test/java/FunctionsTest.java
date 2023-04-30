@@ -177,8 +177,10 @@ public class FunctionsTest{
         String expectedResult = "ignore";
 
         mathTypesettingPage.selectStrict(expectedResult);
+        String actualResult = mathTypesettingPage.getSelectValue();
+        Allure.addAttachment("Selected Value", new ByteArrayInputStream(((TakesScreenshot) Pages.driver).getScreenshotAs(OutputType.BYTES)));
 
-        Assertions.assertEquals(expectedResult, mathTypesettingPage.getSelectValue(), "Selected option is displayed");
+        Assertions.assertEquals(expectedResult, actualResult, "Selected option is displayed");
     }
 
     @Test

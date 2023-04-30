@@ -1,7 +1,4 @@
-import io.qameta.allure.Allure;
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -10,6 +7,8 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.EnabledIf;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
@@ -29,12 +28,7 @@ public class FunctionsTest{
     PageFactory pageFactory = new PageFactory();
     BasePage basePageRegData = new BasePage("Maya", "maya11", "maya@gmail.com");
 
-    /*WebDriver driver;
-    @BeforeEach
-    public void invokeDriver()
-    {
-        this.driver = Pages.driver;
-    }*/
+
     @AfterAll
     public static void quitDriver()
     {
@@ -205,7 +199,9 @@ public class FunctionsTest{
         MathTypesettingPage mathTypesettingPage = markDownPage.goToMathTypeSettingPage();
         mathTypesettingPage.goToKatexPage();
         mathTypesettingPage.goToExercisePage();
+        Allure.addAttachment("Original Katex Code", new ByteArrayInputStream(((TakesScreenshot) Pages.driver).getScreenshotAs(OutputType.BYTES)));
         mathTypesettingPage.changeKatexCode("katexCode.txt");
+        Allure.addAttachment("Updated Katex Code", new ByteArrayInputStream(((TakesScreenshot) Pages.driver).getScreenshotAs(OutputType.BYTES)));
         Thread.sleep(1500);
 
         Assertions.assertTrue(mathTypesettingPage.goBackToUrl(expectedUrl));

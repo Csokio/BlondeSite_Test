@@ -17,12 +17,7 @@ public abstract class Pages {
 
     public Pages() {
         if (driver == null) {
-            //WebDriverManager.chromedriver().setup();
-            //System.setProperty("webdriver.chrome.driver", "chromedriver");
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
-
-
-
+            WebDriverManager.chromedriver().setup();
 
             ChromeOptions options = new ChromeOptions();
             options.setAcceptInsecureCerts(true);

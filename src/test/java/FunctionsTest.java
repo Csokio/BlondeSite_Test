@@ -9,6 +9,7 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.EnabledIf;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
 import java.nio.file.Files;
@@ -27,7 +28,12 @@ public class FunctionsTest{
     PageFactory pageFactory = new PageFactory();
     BasePage basePageRegData = new BasePage("Maya", "maya11", "maya@gmail.com");
 
-
+    WebDriver driver;
+    @BeforeEach
+    public void invokeDriver()
+    {
+        this.driver = Pages.driver;
+    }
     @AfterAll
     public static void quitDriver()
     {

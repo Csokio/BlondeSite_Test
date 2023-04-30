@@ -17,8 +17,8 @@ public abstract class Pages {
 
     public Pages() {
         if (driver == null) {
-            //WebDriverManager.chromedriver().setup();
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
+            WebDriverManager.chromedriver().setup();
+            //System.setProperty("webdriver.chrome.driver", "chromedriver");
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("ignore-certificate-errors");

@@ -1,4 +1,4 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
+//import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,7 +17,8 @@ public abstract class Pages {
 
     public Pages() {
         if (driver == null) {
-            WebDriverManager.chromedriver().setup();
+            //WebDriverManager.chromedriver().setup();
+            System.setProperty("webdriver.chrome.driver", "chromedriver");
 
             ChromeOptions options = new ChromeOptions();
             options.setAcceptInsecureCerts(true);

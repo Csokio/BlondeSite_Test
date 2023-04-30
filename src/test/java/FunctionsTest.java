@@ -188,7 +188,7 @@ public class FunctionsTest{
     @DisplayName("Change Text")
     @Severity(SeverityLevel.MINOR)
     @Description("As a logged in user:\n    " +
-            "Change the content of the textarea based on the provided file")
+            "Change the content of the textarea based on the provided file and navigate back to index page")
     public void testChangeTextAndNavigateBack() throws InterruptedException
     {
         testLogin();
